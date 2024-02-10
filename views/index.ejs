@@ -1,0 +1,25 @@
+<div class="author">
+    <h1 class="author_heading">A Arte das Palavras</h1>
+    <p class="author_body">As minhas palavras para o Mundo</p>
+</div>
+
+<img src="https://wallpapers.com/images/featured-full/book-5q6xbfxwtbme5kaj.jpg" alt="Imagem Capa" class="image" width="981" height="528">
+
+<section class="articles">
+    <h2 class="articles_heading">Últimas Publicações</h2>
+
+    <ul class="article-ul">
+        <% data.forEach(post => { %>
+            <li>
+                <a href="/post/<%= post._id %>">
+                    <span><%= post.title %></span>
+                    <span class="article-list_date"><%= post.createdAt.toDateString() %></span>
+                </a>
+            </li>
+        <% }) %>
+    </ul>
+
+    <% if (nextPage !== null) { %>
+        <a href="/?page=<%= nextPage %>" class="pagination">&lt; Ver Publicações Antigas</a>
+    <% } %>
+</section>
